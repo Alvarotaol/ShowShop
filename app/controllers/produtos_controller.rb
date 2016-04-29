@@ -25,10 +25,10 @@ class ProdutosController < ApplicationController
   # POST /produtos.json
   def create
     @produto = Produto.new(produto_params)
-
+    @produto.qtd_lote = 0;
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, notice: 'Produto was successfully created.' }
+        format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
         format.json { render :show, status: :created, location: @produto }
       else
         format.html { render :new }

@@ -13,3 +13,60 @@
  *= require_tree .
  *= require_self
  */
+
+ul#menu_topo li {
+    display: inline;
+}
+
+ul#menu_topo li a {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px 4px 0 0;
+}
+
+ul#menu_topo li a:hover {
+    background-color: orange;
+}
+
+#lateral .box {
+	list-style-type:none;
+	margin-bottom:1em;;
+	padding-bottom:1em;
+	}
+#lateral h3 {
+	display:inline-block;
+	font-weight:bold;
+	font-size:1.6em;
+	font-style:normal;
+	padding-bottom:0.2em;
+	margin: 2em 0 2em 0.81em;
+	border-bottom: 4px solid rgb(155,155,155);
+	}
+#menu {
+	font-style:italic;
+	position:relative;
+	font-size:1.0em;
+	margin:1em 0 1em -1em;
+	padding:0;
+	}
+#menu li {padding:0; margin:0;}
+#menu li a,  #menu li a:link {
+	font-size:1.2em;
+	text-decoration: none;
+	padding: 0.8em 0 0.8em 1em;
+	display: block;
+	-moz-transition: all 1.2s ease;
+			-webkit-transition: all 1.2s ease;
+				-o-transition: all 1.2s ease;
+					transition: all 1.2s ease;
+	}
+#menu li a:hover {
+	color:rgb(255,255,255);
+	background-color:rgba(255,255,255,0.2);
+	-moz-transition: all 0.5s ease;
+			-webkit-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;
+	}
