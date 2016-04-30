@@ -1,9 +1,10 @@
 ## YAML Template.
 pt:
     helpers:
-        label:
-            produto:
-                preco: "Preço"
-                t_lote: "Tamanho do lote"
-                nome: "Nome"
+        submit:
+            create: "Criar %{model}"
+            update: "Alterar %{model}"
+    preco: "Preço"
+    t_lote: "Tamanho do lote"
+    nome: "Nome"
     ola: "aOlá, mundo"

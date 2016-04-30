@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nome:</strong>
+  <strong><%= t :nome %>:</strong>
   <%= @produto.nome %>
 </p>
 
 <p>
-  <strong>Preco:</strong>
+  <strong><%= t :preco %>:</strong>
   <%= @produto.preco %>
 </p>
 
 <p>
-  <strong>T lote:</strong>
+  <strong><%= t :t_lote %>: </strong>
   <%= @produto.t_lote %>
 </p>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Editar', edit_produto_path(@produto) %> |
+<%= link_to 'Voltar', produtos_path %>

@@ -1,7 +1,7 @@
 <%= form_for(@produto, :html => { :multipart => true }) do |f| %>
   <% if @produto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+      <h2><%= pluralize(@produto.errors.count, "erro") %> impediram este produto de ser salvo:</h2>
 
       <ul>
       <% @produto.errors.full_messages.each do |message| %>
@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br>
+    <%= f.label :nome, t(:nome).to_sym %><br>
     <%= f.text_field :nome %>
   </div>
   <div class="field">
-    <%= f.label :preco %><br>
+    <%= f.label :preco, t(:preco).to_sym %><br>
     <%= f.text_field :preco %>
   </div>
   <div class="field">
-    <%= f.label :t_lote %><br>
+    <%= f.label :t_lote, t(:t_lote).to_sym %><br>
     <%= f.number_field :t_lote %>
   </div>
   <div class="field">
