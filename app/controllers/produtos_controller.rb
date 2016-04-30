@@ -23,6 +23,7 @@ class ProdutosController < ApplicationController
 
   # POST /produtos
   # POST /produtos.json
+  #bug impedir que usuários digitem números e nomes muito grandes (obrigado, Victor)
   def create
     @produto = Produto.new(produto_params)
     @produto.qtd_lote = 0;
@@ -69,6 +70,6 @@ class ProdutosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def produto_params
-      params.require(:produto).permit(:nome, :preco, :t_lote)
+      params.require(:produto).permit(:nome, :preco, :t_lote, :imagem)
     end
 end

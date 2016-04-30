@@ -14,13 +14,16 @@
 ActiveRecord::Schema.define(version: 20160424232410) do
 
   create_table "produtos", force: :cascade do |t|
-    t.string   "nome",       limit: 255
-    t.decimal  "preco",                  precision: 10
-    t.integer  "t_lote",     limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "qtd_lote",   limit: 255
-    t.string   "imagem",     limit: 255
+    t.string   "nome",                limit: 255
+    t.decimal  "preco",                           precision: 10
+    t.integer  "t_lote",              limit: 4
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "qtd_lote",            limit: 255
+    t.string   "imagem_file_name",    limit: 255
+    t.string   "imagem_content_type", limit: 255
+    t.integer  "imagem_file_size",    limit: 4
+    t.datetime "imagem_updated_at"
   end
 
 end
