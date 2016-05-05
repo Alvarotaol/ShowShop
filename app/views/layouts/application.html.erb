@@ -8,8 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <%=  render 'menu' %>
   <div class="conteudo">
+    <!--#devise-->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
 </body>

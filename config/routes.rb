@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
+  devise_for :usuarios
   resources :produtos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  devise_scope :usuario do
+    get "cadastro", to: "devise/registrations#new"
+    get "login", to: "devise/sessions#new"
+    get "logout", to: "devise/sessions#destroy"
+  end
+  
   # You can have the root of your site routed with "root"
   root 'produtos#index'
-  get 'login' => 'application#not_found'
-  get 'cadastro' => 'application#not_found'
   get 'categoria' => 'application#not_found'
   get 'historico' => 'application#not_found'
 
