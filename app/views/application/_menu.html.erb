@@ -1,13 +1,13 @@
 
 <ul id="menu-topo">
-  <% if true#user_signed_in? %>
-    <li><%= link_to 'Login', login_path %></li>
-  <% else %>
+  <% if usuario_signed_in? %>
     <li><%= link_to('Logout', logout_path, method: :delete) %></li>
+    <li><%= link_to 'Histórico', historico_path %></li>
+  <% else %>
+    <li><%= link_to 'Login', login_path %></li>
+    <li><%= link_to 'Cadastro', cadastro_path %></li>
   <% end %>
-  <li><%= link_to 'Cadastro', cadastro_path %></li>
   <li><%= link_to 'Categoria', categoria_path %></li>
-  <li><%= link_to 'Histórico', historico_path %></li>
 </ul> 
 
 <div id="menu-lateral">
