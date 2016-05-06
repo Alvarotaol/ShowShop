@@ -5,7 +5,7 @@
 <% @produtos.each do |produto| %>
   <div class="produto">
     <div class="nome-produto"> <%= produto.nome %> </div>
-    <%=link_to image_tag(produto.imagem.url, class: 'media-object', :width => "50 "), produto %>
+    <%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object'), produto %>
     <div class="preco-produto"> <%= produto.preco %> </div>
     <progress max="<%= produto.t_lote %>" value="<%= produto.qtd_lote %>"></progress>
   </div>

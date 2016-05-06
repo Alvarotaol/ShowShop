@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 #gem pra facilitar a autencitação de usuário (login e relacionados)
 gem 'devise'
+gem 'devise-i18n'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rake', '10.1.0'
