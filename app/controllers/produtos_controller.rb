@@ -26,7 +26,6 @@ class ProdutosController < ApplicationController
   #bug impedir que usuários digitem números e nomes muito grandes (obrigado, Victor)
   def create
     @produto = Produto.new(produto_params)
-    @produto.qtd_lote = 0;
     respond_to do |format|
       if @produto.save
         format.html { redirect_to @produto, notice: 'Produto criado com sucesso.' }
@@ -43,7 +42,7 @@ class ProdutosController < ApplicationController
   def update
     respond_to do |format|
       if @produto.update(produto_params)
-        format.html { redirect_to @produto, notice: 'Produto was successfully updated.' }
+        format.html { redirect_to @produto, notice: 'O produto foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @produto }
       else
         format.html { render :edit }
@@ -57,7 +56,7 @@ class ProdutosController < ApplicationController
   def destroy
     @produto.destroy
     respond_to do |format|
-      format.html { redirect_to produtos_url, notice: 'Produto was successfully destroyed.' }
+      format.html { redirect_to produtos_url, notice: 'O produto foi removido com sucesso.' }
       format.json { head :no_content }
     end
   end

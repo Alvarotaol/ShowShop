@@ -72,11 +72,15 @@ pt:
             update: "Alterar %{model}"
         label:
             produto:
-                preco: "Preço"
-                t_lote: "Tamanho do lote"
                 nome: "Nome"
-
+                marca: "Marca"
+            lote:
+                t_lote: "Tamanho do lote"
+                preco: "Preço"
+                
     preco: "Preço"
     t_lote: "Tamanho do lote"
+    qtd_lote: "Progresso do lote"
     nome: "Nome"
     ola: "aOlá, mundo"
+    marca: "Marca"
