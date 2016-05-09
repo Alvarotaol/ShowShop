@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <!--<%= p = Produto.find_by_id(@lote.produto_id) %>-->
+  <strong><%= t :produto %>:</strong>
+  <%= image_tag(p.imagem) %>
+  <%= p.nome %>
+</p>
+
+<p>
   <strong><%= t :qtd_lote %>:</strong>
   <%= @lote.qtd_lote %>
 </p>
