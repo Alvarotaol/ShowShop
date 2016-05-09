@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th><%= t :produto  %> </th>
       <th><%= t :qtd_lote  %> </th>
       <th><%= t :preco  %></th>
       <th><%= t :t_lote  %></th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @lotes.each do |lote| %>
       <tr>
+        <td><%= Produto.find_by_id(lote.produto_id).nome %></td>
         <td><%= lote.qtd_lote %></td>
         <td><%= lote.preco %></td>
         <td><%= lote.t_lote %></td>

@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :produto %><br>
+    <%= f.collection_select :produto_id, Produto.order(:nome),:id,:nome %>
+  </div>
+
+  <div class="field">
     <%= f.label :preco %><br>
     <%= f.text_field :preco %>
   </div>
