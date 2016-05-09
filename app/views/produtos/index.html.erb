@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Catálogos de Produtos</h1>
+<h1>Catálogo de Produtos</h1>
 
 <% @produtos.each do |produto| %>
   <div class="produto">
     <div class="nome-produto"> <%= produto.nome %> </div>
-    <%=link_to image_tag(produto.imagem.url, class: 'media-object', :width => "50 "), produto %>
-    <div class="preco-produto"> <%= produto.preco %> </div>
-    <progress max="<%= produto.t_lote %>" value="<%= produto.qtd_lote %>"></progress>
+    <%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object'), produto %>
+    <div class="marca-produto"> <%= produto.marca %> </div>
   </div>
 <% end %>
 
 <br>
-<%= link_to "novo", new_produto_path() %> 
+<%= link_to "Novo Produto", new_produto_path() %> 

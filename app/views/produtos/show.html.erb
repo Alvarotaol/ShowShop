@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@produto.imagem.url(:medium)) %>
 <p>
-  <strong>Nome:</strong>
+  <strong><%= t :nome %>:</strong>
   <%= @produto.nome %>
 </p>
 
 <p>
-  <strong>Preco:</strong>
-  <%= @produto.preco %>
+  <strong><%= t :marca %>:</strong>
+  <%= @produto.marca %>
 </p>
 
-<p>
-  <strong>T lote:</strong>
-  <%= @produto.t_lote %>
-</p>
-
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+<%= link_to 'Editar', edit_produto_path(@produto) %> |
+<%= link_to 'Voltar', produtos_path %>

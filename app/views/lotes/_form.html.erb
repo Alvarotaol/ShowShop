@@ -1,0 +1,30 @@
+<%= form_for(@lote) do |f| %>
+  <% if @lote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lote.errors.count, "erro") %> impediram este lote de ser salvo:</h2>
+
+      <ul>
+      <% @lote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :produto %><br>
+    <%= f.collection_select :produto_id, Produto.order(:nome),:id,:nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preco %><br>
+    <%= f.text_field :preco %>
+  </div>
+  <div class="field">
+    <%= f.label :t_lote %><br>
+    <%= f.number_field :t_lote %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

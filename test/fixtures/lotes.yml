@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qtd_lote: 1
+  preco: 9.99
+  t_lote: 1
+
+two:
+  qtd_lote: 1
+  preco: 9.99
+  t_lote: 1
