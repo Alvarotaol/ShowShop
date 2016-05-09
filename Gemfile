@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'devise-i18n'
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rake', '10.1.0'

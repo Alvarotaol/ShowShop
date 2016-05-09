@@ -8,12 +8,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%=  render 'menu' %>
-  <div class="conteudo">
-    <!--#devise-->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <div id="main-container" class="container">
+    <div class="row"><%=  render 'menutopo' %></div>
+    <div class="row">
+        <div class="col-xs-3"><%=  render 'menulateral' %></div>
+        <div class="col-xs-9">
+            <!--#devise-->
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= yield %>
+        </div>
+    </div>
   </div>
 </body>
 </html>
