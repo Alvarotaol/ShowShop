@@ -11,4 +11,6 @@
 <% end %>
 
 <br>
-<%= link_to "Novo Produto", new_produto_path() %> 
+<% if current_usuario.try(:fornecedor?) %>
+<%= link_to "Novo Produto", new_produto_path() %>
+<% end %>

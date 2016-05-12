@@ -21,6 +21,7 @@
   <strong><%= t :t_lote %>:</strong>
   <%= @lote.t_lote %>
 </p>
-
+<% if current_usuario.try(:fornecedor?) %>
 <%= link_to 'Editar', edit_lote_path(@lote) %> |
+<% end %>
 <%= link_to 'Voltar', lotes_path %>

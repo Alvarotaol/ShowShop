@@ -21,12 +21,13 @@
         <td><%= lote.preco %></td>
         <td><%= lote.t_lote %></td>
         <td><%= link_to 'Mostrar', lote %></td>
-        <td><%= link_to 'Editar', edit_lote_path(lote) %></td>
+        <td><% if current_usuario.try(:fornecedor?) %><%= link_to 'Editar', edit_lote_path(lote) %><% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_usuario.try(:fornecedor?) %>
 <%= link_to 'Novo Lote', new_lote_path %>
+<% end %>

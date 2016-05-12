@@ -1,5 +1,6 @@
 class LotesController < ApplicationController
   before_action :set_lote, only: [:show, :edit, :update, :destroy]
+  before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /lotes
   # GET /lotes.json
@@ -71,5 +72,11 @@ class LotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def lote_params
       params.require(:lote).permit(:preco, :t_lote, :produto_id)
+    end
+  
+    def redir_cliente
+      unless current_usuario.try(:fornecedor?)
+        redirect_to lotes_url
+      end
     end
 end

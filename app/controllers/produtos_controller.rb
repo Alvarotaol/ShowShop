@@ -1,5 +1,6 @@
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:show, :edit, :update, :destroy]
+  before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /produtos
   # GET /produtos.json
@@ -71,4 +72,10 @@ class ProdutosController < ApplicationController
     def produto_params
       params.require(:produto).permit(:nome, :preco, :t_lote, :imagem)
     end
+  
+  def redir_cliente
+    unless current_usuario.try(:fornecedor?)
+      redirect_to produtos_url
+    end
+  end
 end
