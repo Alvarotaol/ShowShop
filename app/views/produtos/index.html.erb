@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Catálogo de Produtos</h1>
+<!--   -->
+<div style = "background-color : white;">
+	<h1>Catálogo de Produtos</h1>
 
-<% @produtos.each do |produto| %>
-  <div class="produto">
-    <div class="nome-produto"> <%= produto.nome %> </div>
-    <%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object'), produto %>
-    <div class="marca-produto"> <%= produto.marca %> </div>
-  </div>
-<% end %>
+		<% @produtos.each do |produto| %>
+		  <div class="produto" style = "display: inline-block;">
+		    <div class="nome-produto" style = " width : 8em;"> <%= produto.nome %> </div>
+		    <%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object'), produto %>
+		    <div class="marca-produto" style ="font-style: oblique; color: #767676;" > <%= produto.marca %>  </div>
+		  </div>
+		<% end %>
 
-<br>
-<%= link_to "Novo Produto", new_produto_path() %> 
+	<br>
+	<%= link_to "Novo Produto", new_produto_path() %> 
+oblique
+	<hr>
+	<h1> Lojas </h1>
+</div>
