@@ -11,18 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511232809) do
+ActiveRecord::Schema.define(version: 20160516151548) do
 
-  create_table "lotes", force: :cascade do |t|
-    t.integer  "qtd_lote",   limit: 4
-    t.decimal  "preco",                precision: 10
-    t.integer  "t_lote",     limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+  create_table "lojas", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "produto_id", limit: 4
+    t.string   "nome",       limit: 255
   end
 
-  add_index "lotes", ["produto_id"], name: "index_lotes_on_produto_id", using: :btree
+  add_index "lojas", ["produto_id"], name: "index_lojas_on_produto_id", using: :btree
 
   create_table "produtos", force: :cascade do |t|
     t.string   "nome",                limit: 255
@@ -54,5 +52,4 @@ ActiveRecord::Schema.define(version: 20160511232809) do
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "lotes", "produtos"
 end
