@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="Faculdade">
+            <file>file:/home/alvaro/rails/ShowShop/app/views/produtos/index.html.erb</file>
+            <file>file:/home/alvaro/rails/ShowShop/app/assets/stylesheets/produtos.scss</file>
+            <file>file:/home/alvaro/rails/ShowShop/app/views/produtos/_form.html.erb</file>
+            <file>file:/home/alvaro/rails/ShowShop/config/routes.rb</file>
+        </group>
+        <group>
+            <file>file:/home/arubaro/rails/ShowShop/app/views/produtos/_form.html.erb</file>
+            <file>file:/home/arubaro/rails/ShowShop/config/locales/pt.yml</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/controllers/produtos_controller.rb</file>
+            <file>file:/home/arubaro/rails/ShowShop/.git/config</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/models/produto.rb</file>
+            <file>file:/home/arubaro/rails/ShowShop/Gemfile</file>
+        </group>
+        <group name="Pessoal">
+            <file>file:/home/arubaro/rails/ShowShop/app/views/produtos/_form.html.erb</file>
+            <file>file:/home/arubaro/rails/ShowShop/config/locales/pt.yml</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/controllers/produtos_controller.rb</file>
+            <file>file:/home/arubaro/rails/ShowShop/.git/config</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/models/produto.rb</file>
+            <file>file:/home/arubaro/rails/ShowShop/Gemfile</file>
+        </group>
+        <group name="Universidade">
+            <file>file:/home/arubaro/rails/ShowShop/app/controllers/produtos_controller.rb</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/edit.html.erb</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/_form.html.erb</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/show.html.erb</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/controllers/lotes_controller.rb</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/index.html.erb</file>
+        </group>
+    </open-files>
+</project-private>
