@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :lotes
-  devise_for :usuarios
+  resources :lojas
+  devise_for :usuarios, :controllers => { registrations: 'registrations' }
   resources :produtos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

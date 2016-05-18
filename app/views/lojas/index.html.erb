@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de lotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t :nome  %> </th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lojas.each do |loja| %>
+      <tr>
+        <td><%= loja.nome %></td>
+        <td><%= link_to 'Mostrar', loja %></td>
+        <td><% if current_usuario.try(:fornecedor?) %><%= link_to 'Editar', edit_loja_path(loja) %><% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_usuario.try(:fornecedor?) %>
+<%= link_to 'Nova Loja', new_loja_path %>
+<% end %>

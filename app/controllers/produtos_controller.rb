@@ -1,11 +1,13 @@
 class ProdutosController < ApplicationController
-	before_action :set_produto, only: [:show, :edit, :update, :destroy]
+  before_action :set_produto, only: [:show, :edit, :update, :destroy]
+  before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
 
-	# GET /produtos
-	# GET /produtos.json
-	def index
-		@produtos = Produto.all
-	end
+  # GET /produtos
+  # GET /produtos.json
+  def index
+    @produtos = Produto.all
+    @lojas = Loja.all
+  end
 
 	# GET /produtos/1
 	# GET /produtos/1.json
@@ -67,8 +69,14 @@ class ProdutosController < ApplicationController
 			@produto = Produto.find(params[:id])
 		end
 
-		# Never trust parameters from the scary internet, only allow the white list through.
-		def produto_params
-			params.require(:produto).permit(:nome, :preco, :marca, :t_lote, :imagem)
-		end
+   # Never trust parameters from the scary internet, only allow the white list through.
+    def produto_params
+      params.require(:produto).permit(:nome, :preco, :marca, :t_lote, :imagem)
+    end
+  
+  def redir_cliente
+    unless current_usuario.try(:fornecedor?)
+      redirect_to produtos_url
+    end
+  end
 end
