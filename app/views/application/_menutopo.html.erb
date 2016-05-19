@@ -1,27 +1,50 @@
-
 	<nav class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="btn btn-navbar" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
-					</button>
+					</a>
 					<a class="brand" href="#">ShowShop</a>
 				</div>
-				<ul class="nav navbar-nav">
-					<% if usuario_signed_in? %>
-						<li><%= link_to('Logout', logout_path, method: :delete) %></li>
-						<li><%= link_to 'Histórico', historico_path %></li>
-					<% else %>
-						<li><%= link_to 'Login', login_path %></li>
+				<ul class="nav nav-collapse	">
+					<% unless usuario_signed_in? %>
+						<li><%= link_to 'Login', login_path %></li> 	<!-- Isso deve ser tirado mais tarde-->
 						<li><%= link_to 'Cadastro', cadastro_path %></li>
 					<% end %>
 					<li><%= link_to 'Categoria', categoria_path %></li>
 					<li><%= link_to 'Lotes', lotes_path  %> </li>
 					<li><%= link_to 'Produtos', produtos_path  %> </li>
+				</ul>
+				<ul class="nav pull-right">
+				<!-- Mostrar tudo isso se o usuário não estiver logado-->
+					<% unless usuario_signed_in? %>
+						<li class="dropdown" id="menuLogin">
+							<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Já possuo cadastro</a>
+							<div class="dropdown-menu" style = "padding:10px; width: 250px !important;" >
+								<form class="form" id="formLogin">
+									<div class="input-group input-group-sm">
+										<!-- Aqui está o email-->
+										<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+										<input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">
+									</div>
+									<div class="input-group input-group-sm">
+									<!-- Aqui está a senha-->
+										<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+										<input id="password" type="password" class="form-control" name="password" value="" placeholder="Password"><br>
+									</div>
+									<button type="button" id="btnLogin" class="btn pull-right">Entrar</button>
+								</form>
+							</div>
+						</li>
+						<li><%= link_to 'Cadastrar', cadastro_path %></li>
+						<!-- mas se ele estiver logado, só mostra o logout e o histórico-->
+					<%else%>
+							<li><%= link_to('Logout', logout_path, method: :delete) %></li>
+							<li><%= link_to 'Histórico', historico_path %></li>
+					<% end %>
 				</ul>
 			</div>
 		</div>
