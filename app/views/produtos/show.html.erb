@@ -11,6 +11,6 @@
   <%= @produto.marca %>
 </p>
 <% if current_usuario.try(:fornecedor?) %>
-<%= link_to 'Editar', edit_produto_path(@produto) %> |
+<%= link_to 'Editar', edit_loja_produto_path(@loja, @produto) %> |
 <% end %>
-<%= link_to 'Voltar', produtos_path %>
+<%= link_to 'Voltar', loja_produtos_path(@loja) %>

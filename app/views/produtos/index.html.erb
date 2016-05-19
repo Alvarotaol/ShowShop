@@ -2,30 +2,30 @@
 
 <div style = "background-color : white;">
 	<div>
-        <h1>Catálogo de Produtos </h1>
+		<h1>Catálogo de Produtos </h1>
+		<% unless @loja.nil? %>
+			<h2><%= @loja.nome %></h2>
+		<% end %>
 		<% if current_usuario.try(:fornecedor?) %>
-        <div class="btn-group">
-		<%= link_to "Novo Produto", new_produto_path(), :class => "btn btn-primary ui-btn-inline" %>
-		</div>
-        <% end %>
+			
+			<div class="btn-group">
+				<% unless @loja.nil? %>
+					<%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "btn btn-primary ui-btn-inline" %>
+				<% end %>
+			</div>
+		<% end %>
 	</div>
 
-    <% @produtos.each do |produto| %>
-		  <div class="produto" style = "display: inline-block; margin-left: auto; margin-right: auto; width: 10em">
-		    <%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object', :align=> "middle"), produto %>
-		    <div class="nome-produto"> <%=link_to produto.nome, produto %> </div>
-		    <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= produto.marca %>  </div>
-		    <div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
-		    <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > Categoria indefinida </div>
-		    <div> R$ 99,99 </div>
-		  </div>
-		<% end %>
+	<% @produtos.each do |produto| %>
+		<div class="produto" style = "display: inline-block; margin-left: auto; margin-right: auto; width: 10em">
+			<%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object', :align=> "middle"), loja_produto_path(@loja, produto) %>
+				 <div class="nome-produto"> <%=link_to produto.nome, loja_produto_path(@loja, produto) %> </div>
+			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= produto.marca %>  </div>
+			<div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
+			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > Categoria indefinida </div>
+			<div> R$ 99,99 </div>
+		</div>
+	<% end %>
 	<br>
 	<hr>
-	<h1> Lojas </h1>
-    <% @lojas.each do |loja| %>
-        <div class="loja" style = "display: inline-block;">
-        <div class="nome-loja" style = " width : 8em;"> a </div>
-        <%=link_to 'lojaaa', loja %>
-        </div>
-    <% end %>
+</div>

@@ -1,38 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-	<body>
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-                    <%= link_to 'ShowShop', lojas_path, :class => "navbar-brand" %>
-				</div>
-				<ul class="nav navbar-nav">
-					<% if usuario_signed_in? %>
-						<li><%= link_to 'Histórico', historico_path %></li>
-					<% else %>
-						 <li><%= link_to 'Cadastro', cadastro_path %></li>
-					<% end %>
-					<li><%= link_to 'Categoria', categoria_path %></li>
-					<li><%= link_to 'Produtos', produtos_path  %> </li>
-					 <%= render 'devise/menu/login_items' %>
-				</ul>
-			</div>
-		</nav>
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+				  <%= link_to 'ShowShop', lojas_path, :class => "navbar-brand" %>
+		</div>
+		<ul class="nav navbar-nav">
+			<% if usuario_signed_in? %>
+				<li><%= link_to 'Histórico', historico_path %></li>
+			<% else %>
+				 <li><%= link_to 'Cadastro', cadastro_path %></li>
+			<% end %>
+			<li><%= link_to 'Categoria', categoria_path %></li>
+			
+			 <%= render 'devise/menu/login_items' %>
+		</ul>
+	</div>
+</nav>
 
-				<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="../../dist/js/bootstrap.min.js"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-	</body>
-</html>
+		<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 

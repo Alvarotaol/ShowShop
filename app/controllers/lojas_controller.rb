@@ -67,8 +67,7 @@ class LojasController < ApplicationController
 
     def produtos
         #@produtos = @loja.produtos
-        params[:loja_id]= @loja.id
-        redirect_to produtos_url
+      redirect_to produtos_url(@loja.id)
     end
     
   private
