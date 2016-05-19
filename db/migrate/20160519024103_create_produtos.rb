@@ -3,8 +3,9 @@ class CreateProdutos < ActiveRecord::Migration
     create_table :produtos do |t|
       t.string :nome
       t.string :marca
-
-      t.timestamps null: false
+        t.references :loja, index: true, foreign_key: true
+        t.timestamps null: false
     end
   end
 end
+

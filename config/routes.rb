@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :lojas
+  resources :lojas do
+    member do
+        get :produtos
+  end
+end
   devise_for :usuarios, :controllers => { registrations: 'registrations' }
   resources :produtos
   # The priority is based upon order of creation: first created -> highest priority.
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
   get 'categoria' => 'application#not_found'
   get 'historico' => 'application#not_found'
   get 'lojas' => 'lojas#index'
-
+    #get '/lojas/:id/lojaprod', to: 'lojas#produtos'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

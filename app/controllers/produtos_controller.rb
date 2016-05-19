@@ -5,8 +5,8 @@ class ProdutosController < ApplicationController
   # GET /produtos
   # GET /produtos.json
   def index
-    @produtos = Produto.all
-    @lojas = Loja.all
+      @loja = Loja.find(params[:loja_id])
+    @produtos = @loja.all
   end
 
 	# GET /produtos/1
@@ -71,7 +71,7 @@ class ProdutosController < ApplicationController
 
    # Never trust parameters from the scary internet, only allow the white list through.
     def produto_params
-      params.require(:produto).permit(:nome, :preco, :marca, :t_lote, :imagem)
+        params.require(:produto).permit(:nome, :preco, :marca, :t_lote, :imagem)
     end
   
   def redir_cliente

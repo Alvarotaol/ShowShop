@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@loja.imagem.url(:medium)) %>
+
 <p>
   <strong><%= t :nome %>:</strong>
   <%= @loja.nome %>

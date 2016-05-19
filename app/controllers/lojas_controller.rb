@@ -1,7 +1,7 @@
 class LojasController < ApplicationController
   
     
-  before_action :set_loja, only: [:show, :edit, :update, :destroy]
+  before_action :set_loja, only: [:show, :edit, :update, :destroy, :produtos]
   before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
     
     # GET /lojas
@@ -65,6 +65,12 @@ class LojasController < ApplicationController
     end
   end
 
+    def produtos
+        #@produtos = @loja.produtos
+        params[:loja_id]= @loja.id
+        redirect_to produtos_url
+    end
+    
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_loja

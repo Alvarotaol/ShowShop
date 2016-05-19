@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519003440) do
+ActiveRecord::Schema.define(version: 20160519024104) do
 
   create_table "lojas", force: :cascade do |t|
     t.string   "nome",                limit: 255
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160519003440) do
   create_table "produtos", force: :cascade do |t|
     t.string   "nome",                limit: 255
     t.string   "marca",               limit: 255
+    t.integer  "loja_id",             limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "imagem_file_name",    limit: 255
@@ -34,6 +35,8 @@ ActiveRecord::Schema.define(version: 20160519003440) do
     t.integer  "imagem_file_size",    limit: 4
     t.datetime "imagem_updated_at"
   end
+
+  add_index "produtos", ["loja_id"], name: "index_produtos_on_loja_id", using: :btree
 
   create_table "usuarios", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",    null: false
@@ -54,4 +57,5 @@ ActiveRecord::Schema.define(version: 20160519003440) do
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "produtos", "lojas"
 end
