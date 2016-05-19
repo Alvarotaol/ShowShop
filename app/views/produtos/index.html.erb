@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<div style = "background-color : white;">
+<div>
 	<div>
-		<h1>Catálogo de Produtos </h1>
-		<% unless @loja.nil? %>
+        <div>
+		  <h1>Catálogo de Produtos </h1>
+            <% if current_usuario.try(:fornecedor?) %>
+            <div class="btn-group">
+                <% #unless @loja.nil? %>
+		          <%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "btn btn-primary ui-btn-inline" %>
+                <%# end %>
+            <% end %>
+		  </div>
+        </div>
+		<% #unless @loja.nil? %>
 			<h2><%= @loja.nome %></h2>
-		<% end %>
-		<% if current_usuario.try(:fornecedor?) %>
-			
-			<div class="btn-group">
-				<% unless @loja.nil? %>
-					<%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "btn btn-primary ui-btn-inline" %>
-				<% end %>
-			</div>
-		<% end %>
+		<%# end %>
+
 	</div>
 
 	<% @produtos.each do |produto| %>

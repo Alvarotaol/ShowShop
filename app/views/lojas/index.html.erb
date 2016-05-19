@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<div>
 <h1>Lojas</h1>
+    <%if current_usuario.try(:fornecedor?) %>
+          <div class="btn-group">
+              <%= link_to "Nova Loja", new_loja_path, :class => "btn btn-primary ui-btn-inline" %>
+          </div>
+    <%end%>
+</div>
 
 <table>
     
   <tbody>
-      <%if current_usuario.try(:fornecedor?) %>
-      <div class="btn-group">
-          <%= link_to "Nova Loja", new_loja_path, :class => "btn btn-primary ui-btn-inline" %>
-      </div>
-      <%end%>
     <% @lojas.each do |loja| %>
        <div class="loja" style = "display: inline-block; margin-left: auto; margin-right: auto; width: 10em">
            <%=link_to image_tag(loja.imagem.url(:thumb), class: 'media-object', :align=> "middle"), loja_produtos_path(loja) %>
-		    <div class="nome-loja"> <%=link_to loja.nome, loja %> </div>
+		    <div class="nome-loja"> <%=link_to loja.nome, loja_produtos_path(loja)  %> </div>
 		  </div>
       
       
