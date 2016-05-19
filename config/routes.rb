@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   end
   
   # You can have the root of your site routed with "root"
-  root 'produtos#index'
+    root 'lojas#index'
   get 'categoria' => 'application#not_found'
   get 'historico' => 'application#not_found'
+  get 'lojas' => 'lojas#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

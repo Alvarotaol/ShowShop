@@ -1,16 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lista de lotes</h1>
+<h1>Lojas</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th><%= t :nome  %> </th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
+    
   <tbody>
+      <%if current_usuario.try(:fornecedor?) %>
+      <div class="btn-group">
+          <%= link_to "Nova Loja", new_loja_path, :class => "btn btn-primary ui-btn-inline" %>
+      </div>
+      <%end%>
     <% @lojas.each do |loja| %>
       <tr>
         <td><%= loja.nome %></td>
@@ -22,6 +21,3 @@
 </table>
 
 <br>
-<% if current_usuario.try(:fornecedor?) %>
-<%= link_to 'Nova Loja', new_loja_path %>
-<% end %>

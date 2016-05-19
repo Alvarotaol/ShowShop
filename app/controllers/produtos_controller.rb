@@ -1,7 +1,7 @@
 class ProdutosController < ApplicationController
   before_action :set_produto, only: [:show, :edit, :update, :destroy]
   before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
-
+    
   # GET /produtos
   # GET /produtos.json
   def index

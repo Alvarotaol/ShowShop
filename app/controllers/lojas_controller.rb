@@ -1,11 +1,14 @@
 class LojasController < ApplicationController
+  
+    
   before_action :set_loja, only: [:show, :edit, :update, :destroy]
   before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
-
-  # GET /lojas
+    
+    # GET /lojas
   # GET /lojas.json
   def index
     @lojas = Loja.all
+      @produtos = Produto.all
   end
 
   # GET /lojas/1
@@ -26,7 +29,6 @@ class LojasController < ApplicationController
   # POST /lojas.json
   def create
     @loja = Loja.new(loja_params)
-    @loja.qtd_loja = 0
 
     respond_to do |format|
       if @loja.save
@@ -71,7 +73,7 @@ class LojasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loja_params
-      params.require(:loja).permit(:nome)
+        params.require(:loja).permit(:nome, :cnpj, :imagem)
     end
   
     def redir_cliente

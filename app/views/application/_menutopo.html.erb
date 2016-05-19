@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">ShowShop</a>
+                    <%= link_to 'ShowShop', lojas_path, :class => "navbar-brand" %>
 				</div>
 				<ul class="nav navbar-nav">
 					<% if usuario_signed_in? %>

@@ -11,26 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516151548) do
+ActiveRecord::Schema.define(version: 20160519003440) do
 
   create_table "lojas", force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "produto_id", limit: 4
-    t.string   "nome",       limit: 255
-  end
-
-  add_index "lojas", ["produto_id"], name: "index_lojas_on_produto_id", using: :btree
-
-  create_table "produtos", force: :cascade do |t|
     t.string   "nome",                limit: 255
+    t.string   "cnpj",                limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "imagem_file_name",    limit: 255
     t.string   "imagem_content_type", limit: 255
     t.integer  "imagem_file_size",    limit: 4
     t.datetime "imagem_updated_at"
+  end
+
+  create_table "produtos", force: :cascade do |t|
+    t.string   "nome",                limit: 255
     t.string   "marca",               limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "imagem_file_name",    limit: 255
+    t.string   "imagem_content_type", limit: 255
+    t.integer  "imagem_file_size",    limit: 4
+    t.datetime "imagem_updated_at"
   end
 
   create_table "usuarios", force: :cascade do |t|
