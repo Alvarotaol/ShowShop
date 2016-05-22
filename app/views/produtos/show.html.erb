@@ -6,17 +6,15 @@
 		<%= image_tag(@produto.imagem.url(:medium)) %>
 	</div>
 	<div class="col-sm-4">
-		<p>
-			<!-- <strong><%= t :nome %>:</strong> -->
-			<h2><%= @produto.nome %><small>
-			<% if current_usuario.try(:fornecedor?) %>
-				<%= link_to edit_loja_produto_path(@loja, @produto) do%>
-				<span class="glyphicon glyphicon-edit"></span><% end %>
-				</small></h2>
-			<% end %>
-		</p>
-		<!-- <strong><%= t :marca %>:</strong> -->
-		Marca <i><%= @produto.marca %></i>
+	
+		<!-- <strong><%= t :nome %>:</strong> -->
+		<h2><%= @produto.nome %><small>
+		<% if current_usuario.try(:fornecedor?) %>
+			<%= link_to edit_loja_produto_path(@loja, @produto) do%>
+			<span class="glyphicon glyphicon-edit"></span><% end %>
+		<% end %>
+		</small></h2>
+		<p>Marca <i><%= @produto.marca %></i></p>
 		<br>
 
 		<h3>Descrição</h3>
@@ -34,7 +32,7 @@
 		<p style = "font-size:18px;">Vendedor:
 		<span style = "font-style: italic;"> <%= @loja.nome%>
 		</span></p>
-		<p style="color: #009933">Esse produto está disponível.</p>
+		<p style="color: #009933">Este produto está disponível.</p>
 		
 		<p style=""> Preço:
 		<span style = "font-size:21px;">99,99
