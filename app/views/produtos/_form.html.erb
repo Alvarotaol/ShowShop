@@ -1,29 +1,34 @@
-<%= form_for([@loja, @loja.produtos.build], :html => { :multipart => true }) do |f| %>
-  <% if @produto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@produto.errors.count, "erro") %> impediram este produto de ser salvo:</h2>
+<%= form_for([@loja, @produto], :html => { :multipart => true }) do |f| %>
+	<% if @produto.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@produto.errors.count, "erro") %> impediram este produto de ser salvo:</h2>
 
-      <ul>
-      <% @produto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :marca %><br>
-    <%= f.text_field :marca %>
-  </div>
-  <div class="field">
-    <%= f.label :imagem %><br>
-    <%= f.file_field :imagem %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+			<ul>
+			<% @produto.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<!-- Campo nome -->
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="input-group input-group-sm">
+				<span class="input-group-addon" style = "min-width:75px">Nome</span>
+				<%= f.text_field :nome, class: "form-control"%>
+			</div>
+			<div class="input-group input-group-sm">
+				<span class="input-group-addon" style = "min-width:75px">Marca</span>
+				<%= f.text_field :marca, class: "form-control"%>
+			</div>
+		</div>
+	</div>
+	<div class="field">
+		<%= f.label :imagem %><br>
+		<%= f.file_field :imagem %>
+	</div>
+	<!-- Botão para enviar dados -->
+	<div class="actions">
+		<%= f.submit "Alterar", class: "btn btn-primary"%>
+	</div>
 <% end %>

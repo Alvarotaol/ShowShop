@@ -3,78 +3,44 @@
 			<div class="col-xm-4 sidebar">
 				<div class = "panel-group" id="collap">
 					<div class="panel panel-default" style = " border: 0;">
+					<!-- Itens são criados para cada loja a partir deste ponto, mas... -->
+						<% if false %> <!-- ...Isso nunca vai ser executado, pois não funciona em páginas que as lojas não são acessadas-->
+						<% @lojas.each do |loja| %>
+							<div class="panel-heading">
+								<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#collap" href="#collapse1">
+								<%=loja.nome%></a>
+								</h4>
+							</div>
+							<div id="collapse1" class="panel-collapse collapse">
+								<ul class="list-group">
+									<li  class="list-group-item">
+									<%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "" %></li>
+									<button type="button" id="btnLogin" class="btn btn-block">Algo diferente</button>
+									<a href="#" class="list-group-item">Um link/Texto envez de um botão?</a>
+								</ul>
+							</div>
+						<% end %>
+						<% end %>
+						
+						<!-- Mas isso vai, porque não acessa as lojas. -->
 						<div class="panel-heading">
 							<h4 class="panel-title">
 							<a data-toggle="collapse" data-parent="#collap" href="#collapse1">
-							Loja 1</a>
+							Temporáriamente...</a>
 							</h4>
 						</div>
 						<div id="collapse1" class="panel-collapse collapse">
 							<ul class="list-group">
-								<a href="#" class="list-group-item">Categoria 1</a>
-								<a href="#" class="list-group-item">Categoria 2</a>
-								<a href="#" class="list-group-item">Categoria 3</a>
+								<button type="button" id="btnLogin" class="btn btn-block">Novo Produto</button>
+								<button type="button" id="btnLogin" class="btn btn-block">Algo diferente</button>
+								<a href="#" class="list-group-item">Um link/Texto envez de um botão?</a>
 							</ul>
 						</div>
-
-						<div class="panel-heading">
-							<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#collap" href="#collapse2">
-							Loja 2</a>
-							</h4>
-						</div>
-						<div id="collapse2" class="panel-collapse collapse">
-							<ul class="list-group">
-								<a href="#" class="list-group-item">Categoria 1</a>
-								<a href="#" class="list-group-item">Categoria 2</a>
-								<a href="#" class="list-group-item">Categoria 3</a>
-							</ul>
-						</div>
-					</div>
-
-						<div class="panel-heading">
-							<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#collap" href="#collapse3">
-							Loja 3</a>
-							</h4>
-						</div>
-						<div id="collapse3" class="panel-collapse collapse">
-							<ul class="list-group">
-								<a href="#" class="list-group-item">Categoria 1</a>
-								<a href="#" class="list-group-item">Categoria 2</a>
-								<a href="#" class="list-group-item">Categoria 3</a>
-							</ul>
-						</div>
-
-						<div class="panel-heading">
-							<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#collap" href="#collapse4">
-							Loja 4</a>
-							</h4>
-						</div>
-						<div id="collapse4" class="panel-collapse collapse">
-							<ul class="list-group">
-								<a href="#" class="list-group-item">Categoria 1</a>
-								<a href="#" class="list-group-item">Categoria 2</a>
-								<a href="#" class="list-group-item">Categoria 3</a>
-							</ul>
-						</div>
-
-						<div class="panel-heading">
-							<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#collap" href="#collapse5">
-							Ajuda</a>
-							</h4>
-						</div>
-						<div id="collapse5" class="panel-collapse collapse">
-							<ul class="list-group">
-								<a href="#" class="list-group-item">FAQ</a>
-								<a href="#" class="list-group-item">Contato</a>
-							</ul>
-
-						</div>
+					<!-- Fim -->
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
