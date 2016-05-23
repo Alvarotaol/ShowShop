@@ -12,15 +12,19 @@
 				<ul class="nav nav-collapse	">
 					<% unless usuario_signed_in? %>
 						<li><%= link_to 'Login', login_path %></li> 	<!-- Isso deve ser tirado mais tarde-->
-                    <% else %>
-	                   <li><%= link_to 'Histórico', historico_path %></li>
+					<% else %>
+						<li><%= link_to 'Histórico', historico_path %></li>
 					<% end %>
 					<li><%= link_to 'Categoria', categoria_path %></li>
 					
 				</ul>
-				<ul class="nav pull-right">
+				<ul class="nav pull-right">					
 					<%= render 'devise/menu/login_items' %>
 				</ul>
+				<!-- Barra de pesquisa -->
+ 				<form class="navbar-search pull-right" action="" style="display: flex; align-items: center; min-height: 34px;">
+					<input type="text" class="search-query span2" placeholder="Buscar..." style ="width:250px !important; height:30px !important;">
+				</form>
 			</div>
 		</div>
 	</nav>
