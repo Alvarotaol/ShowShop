@@ -16,7 +16,7 @@
 		<div class="nome-loja" style = "font-weight: bold; font-size: 15px; color: #767676;"> <%=link_to loja.nome, loja_produtos_path(loja)  %> </div>
 			<!-- Só é mostrado se o usuário for um fornecedor -->
 			<% if current_usuario.try(:fornecedor?) %>
-				<div class="dropdown">
+				<div class="dropdown">	
 					<button class="btn btn-secondary dropdown-toggle" type="button" id = "ddmenuLoja" data-toggle="dropdown">Ferramentas <i class="glyphicon glyphicon-wrench"></i>
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="ddmenuLoja">

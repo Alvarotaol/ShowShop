@@ -5,14 +5,14 @@
 					<div class="panel panel-default" style = " border: 0;">
 					<!-- Itens são criados para cada loja a partir deste ponto, mas... -->
 						<% if false %> <!-- ...Isso nunca vai ser executado, pois não funciona em páginas que as lojas não são acessadas-->
-						<% @lojas.each do |loja| %>
+						<% @lojas.each_with_index do |loja| %>
 							<div class="panel-heading">
 								<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#collap" href="#collapse1">
+								<a data-toggle="collapse" data-parent="#collap" href=<%= "#Collapse#{loja.id}" %>>
 								<%=loja.nome%></a>
 								</h4>
 							</div>
-							<div id="collapse1" class="panel-collapse collapse">
+							<div id=<%= "Collapse#{loja.id}" %> class="panel-collapse collapse">
 								<ul class="list-group">
 									<li  class="list-group-item">
 									<%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "" %></li>
@@ -26,11 +26,11 @@
 						<!-- Mas isso vai, porque não acessa as lojas. -->
 						<div class="panel-heading">
 							<h4 class="panel-title">
-							<a data-toggle="collapse" data-parent="#collap" href="#collapse1">
+							<a data-toggle="collapse" data-parent="#collap" href="#collapse999">
 							Temporáriamente...</a>
 							</h4>
 						</div>
-						<div id="collapse1" class="panel-collapse collapse">
+						<div id="collapse999" class="panel-collapse collapse">
 							<ul class="list-group">
 								<button type="button" id="btnLogin" class="btn btn-block">Novo Produto</button>
 								<button type="button" id="btnLogin" class="btn btn-block">Algo diferente</button>
