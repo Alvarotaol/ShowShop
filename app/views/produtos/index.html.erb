@@ -1,4 +1,13 @@
 <p id="notice"><%= notice %></p>
+
+<div>
+	a
+	<% unless @itens.nil?%>
+	b
+	<ul class="nav"><%= link_to 'Carrinho', carrinho_path %> </ul>
+	<% end %>
+</div>
+
 <div>
 	<div>
 		<div>

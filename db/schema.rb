@@ -11,13 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520125953) do
+ActiveRecord::Schema.define(version: 20160523154956) do
 
   create_table "categoria", force: :cascade do |t|
     t.string   "nome",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "compras", force: :cascade do |t|
+    t.integer  "usuario_id", limit: 4
+    t.integer  "loja_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "compras", ["loja_id"], name: "index_compras_on_loja_id", using: :btree
+  add_index "compras", ["usuario_id"], name: "index_compras_on_usuario_id", using: :btree
+
+  create_table "item_compras", force: :cascade do |t|
+    t.integer  "compra_id",  limit: 4
+    t.integer  "produto_id", limit: 4
+    t.integer  "qtd",        limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "item_compras", ["compra_id"], name: "index_item_compras_on_compra_id", using: :btree
+  add_index "item_compras", ["produto_id"], name: "index_item_compras_on_produto_id", using: :btree
 
   create_table "lojas", force: :cascade do |t|
     t.string   "nome",                limit: 255
@@ -65,5 +86,9 @@ ActiveRecord::Schema.define(version: 20160520125953) do
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "compras", "lojas"
+  add_foreign_key "compras", "usuarios"
+  add_foreign_key "item_compras", "compras"
+  add_foreign_key "item_compras", "produtos"
   add_foreign_key "produtos", "lojas"
 end

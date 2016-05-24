@@ -17,7 +17,18 @@
 								<ul class="list-group">
 									<li  class="list-group-item">
 									<%= link_to "Novo Produto", new_loja_produto_path(loja), :class => "" %></li>
-									<button type="button" id="btnLogin" class="btn btn-block">Algo diferente</button>
+                                    
+                                    
+                                    <%if loja.categorias != nil%>
+                                        <% @categorias = loja.categorias.split(" ")%>
+                                        <%@categorias.each do |cat|%>
+                                        <li class="list-group-item"> 
+                                            
+                                            <%= link_to cat, filtro_path(loja, cat) %> </li>
+                                        <%end%>
+                                    <%end%>
+									
+                                    <button type="button" id="btnLogin" class="btn btn-block">Algo diferente</button>
 									<a href="#" class="list-group-item">Um link/Texto envez de um botão?</a>
 								</ul>
 							</div>
@@ -34,6 +45,7 @@
 							<ul class="list-group">
 								<button type="button" id="btnLogin" class="btn btn-block">Novo Produto</button>
 								<button type="button" id="btnLogin" class="btn btn-block">Algo diferente</button>
+                                
 								<a href="#" class="list-group-item">Um link/Texto em vez de um botão?</a>
 							</ul>
 						</div>
