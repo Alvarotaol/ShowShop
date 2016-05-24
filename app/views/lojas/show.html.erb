@@ -1,13 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag(@loja.imagem.url(:medium)) %>
+<div class="row">
+	<div class="col-sm-4">
+		<%= link_to lojas_path do%> <i class="glyphicon glyphicon-chevron-left"></i> Retornar<% end %>
+		<%= image_tag(@loja.imagem.url(:medium)) %>
+		<!-- Nome da loja -->
+		<h2><%= @loja.nome %>
+		<small>
+			<% if current_usuario.try(:fornecedor?) %>
+				<%= link_to edit_loja_path(@loja) do%>
+				<span class="glyphicon glyphicon-edit"></span><% end %>
+			<% end %>
+		</small>
+		</h2>
+		<!-- Descrição da loja -->
+		<h4>Sobre <%= @loja.nome %></h4>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus iaculis nisi nec porttitor. Praesent vitae libero eu lacus hendrerit tempus. Donec sit amet orci in erat consectetur auctor ac at leo. Nunc vel aliquam eros. Nullam tempor mauris ut vulputate vulputate. Aenean commodo tortor orci, eu viverra justo congue et. Mauris interdum turpis in massa dictum malesuada. Sed vitae eros id enim pharetra semper. 
+	</div>
 
-<p>
-  <strong><%= t :nome %>:</strong>
-  <%= @loja.nome %>
-</p>
-
-<% if current_usuario.try(:fornecedor?) %>
-<%= link_to 'Editar', edit_loja_path(@loja) %> |
-<% end %>
-<%= link_to 'Voltar', lojas_path %>
+	<div class="col-sm-4">
+	<!-- Alguns produtos da loja -->
+		<h4>Produtos recentes de <%= @loja.nome %></h4>
+		<br><br><br><br><br>
+		<h4> Informações de contato de <%= @loja.nome %></h4>
+		<div class="span4">
+			<address>
+				<strong><%= @loja.nome %></strong><br>
+				Endereço, linha #1<br>
+				Endereço, linha #2<br>
+				<abbr title="Telefone de contato">Tel:</abbr> (12) 3456-7890
+			</address>
+			<address>
+				<strong>Nome</strong><br>
+				<a href="mailto:#">loja.contato@emailloja.com</a>
+			</address>
+		</div>
+	</div>
+</div>

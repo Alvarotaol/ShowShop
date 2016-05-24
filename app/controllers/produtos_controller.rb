@@ -13,6 +13,7 @@ class ProdutosController < ApplicationController
   # GET /produtos/1
   # GET /produtos/1.json
   def show
+      @categorias = @produto.categorias.split(" ")
   end
 
   # GET /produtos/new

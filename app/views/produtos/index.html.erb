@@ -1,33 +1,49 @@
+<p id="notice"><%= notice %></p>
 <div>
 	<div>
-        <div>
-		  <h1>Catálogo de Produtos </h1>
-            <% if current_usuario.try(:fornecedor?) %>
-            <div class="btn-group">
-                <% #unless @loja.nil? %>
-		          <%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "btn btn-primary ui-btn-inline" %>
-                <%# end %>
-            <% end %>
-		  </div>
-        </div>
-		<% #unless @loja.nil? %>
-			<h2><%= @loja.nome %></h2>
-		<%# end %>
+		<div>
+			<h1>Catálogo de Produtos de <%= @loja.nome %></h1>
+			<% #if current_usuario.try(:fornecedor?) %>	
 
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" id = "ddmenu" data-toggle="dropdown">Ferramentas <i class="glyphicon glyphicon-wrench"></i>
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="ddmenu">
+					<% if current_usuario.try(:fornecedor?) %>
+					<!--Ferramentas para o fornecedor -->
+						<li class="dropdown-header">Fornecedores</li>
+						<li><%= link_to "Novo Produto", new_loja_produto_path(@loja), :class => "" %></li>
+						<li><%= link_to "Modificar Loja", edit_loja_path(@loja), :class => "" %></li>
+						<li><a href="#">Link para outra coisa?</a></li>
+						<li class="divider"></li>
+					<% end %>
+					<!--Ferramentas para o cliente -->
+					<li class="dropdown-header">Clientes</li>
+					<li><a href="#">Link para algo mais</a></li>
+				</ul>
+			</div>
+		</div>
+			<% #end %>
 	</div>
+</div>
 
+<div style="padding-top: 20px;">
 	<% @produtos.each do |produto| %>
 		<div class="produto" style = "display: inline-block; margin-left: auto; margin-right: auto; width: 10em">
 			<%=link_to image_tag(produto.imagem.url(:thumb), class: 'media-object', :align=> "middle"), loja_produto_path(@loja, produto) %>
 				 <div class="nome-produto"> <%=link_to produto.nome, loja_produto_path(@loja, produto) %> </div>
-			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= produto.marca %>  </div>
+			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= produto.marca %>	</div>
 			<div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
 			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > 
                 <%if produto.categorias == nil%>Categoria indefinida
             <%else%> <%= produto.categorias.split(" ").first %> <%end%></div>
 			<div> R$ 99,99 </div>
+			<% if current_usuario.try(:fornecedor?) %>
+				<!--Apenas fornecedores podem editar produtos -->
+				<%= link_to edit_loja_produto_path(@loja, produto), :class => "btn btn-sm pull-center" do%> Editar <i class="glyphicon glyphicon-edit"></i>
+				<% end %>
+			<% end %>
 		</div>
 	<% end %>
-	<br>
 	<hr>
 </div>
