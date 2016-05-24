@@ -14,21 +14,30 @@
 	<div class="row">
 		<div class="col-sm-4">
 		<!-- Nome do produto -->
-			<div class="input-group input-group-sm">
-				<span class="input-group-addon" style = "min-width:85px">Nome</span>
-				<%= f.text_field :nome, class: "form-control"%>
-			</div>
+		<div class="input-group input-group-sm">
+			<span class="input-group-addon" style = "min-width:85px">Nome</span>
+			<%= f.text_field :nome, class: "form-control"%>
+		</div>
 		<!-- Marca do produto -->
-			<div class="input-group input-group-sm">
-				<span class="input-group-addon" style = "min-width:85px">Marca</span>
-				<%= f.text_field :marca, class: "form-control"%>
-			</div>
-            
-        <!-- Categorias -->
-            <div class="input-group input-group-sm">
-				<span class="input-group-addon" style = "min-width:85px">Categorias</span>
-                <%= f.text_field :categorias, class: "form-control"%>
-			</div>
+		<div class="input-group input-group-sm">
+			<span class="input-group-addon" style = "min-width:85px">Marca</span>
+			<%= f.text_field :marca, class: "form-control"%>
+		</div>
+		<!-- Preço do produto -->
+		<div class="input-group input-group-sm">
+			<span class="input-group-addon" style = "min-width:84px">Preço</span>
+			<%= f.text_field :preco, class: "form-control"%>
+		</div>
+		<!-- Descrição do produto -->
+		<div class="input-group input-group-sm">
+			<span class="input-group-addon" style = "min-width:84px">Descrição</span>
+			<%= f.text_area :descricao, class: "form-control"%>
+		</div>
+		<!-- Categorias -->
+		<div class="input-group input-group-sm">
+			<span class="input-group-addon" style = "min-width:85px">Categorias</span>
+			<%= f.text_field :categorias, class: "form-control"%>
+		</div>
 		<!-- Fim -->
 		</div>
 	</div>

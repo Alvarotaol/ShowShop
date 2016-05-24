@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523154956) do
+ActiveRecord::Schema.define(version: 20160524211627) do
 
   create_table "categoria", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -57,12 +57,14 @@ ActiveRecord::Schema.define(version: 20160523154956) do
     t.string   "marca",               limit: 255
     t.string   "categorias",          limit: 255
     t.integer  "loja_id",             limit: 4
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "imagem_file_name",    limit: 255
     t.string   "imagem_content_type", limit: 255
     t.integer  "imagem_file_size",    limit: 4
     t.datetime "imagem_updated_at"
+    t.float    "preco",               limit: 24
+    t.text     "descricao",           limit: 65535
   end
 
   add_index "produtos", ["loja_id"], name: "index_produtos_on_loja_id", using: :btree

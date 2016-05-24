@@ -25,12 +25,9 @@
             <file>file:/home/arubaro/rails/ShowShop/Gemfile</file>
         </group>
         <group name="Universidade">
+            <file>file:/home/arubaro/rails/ShowShop/app/controllers/lojas_controller.rb</file>
             <file>file:/home/arubaro/rails/ShowShop/app/controllers/produtos_controller.rb</file>
-            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/edit.html.erb</file>
-            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/_form.html.erb</file>
-            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/show.html.erb</file>
-            <file>file:/home/arubaro/rails/ShowShop/app/controllers/lotes_controller.rb</file>
-            <file>file:/home/arubaro/rails/ShowShop/app/views/lotes/index.html.erb</file>
+            <file>file:/home/arubaro/rails/ShowShop/app/views/application/_menulateral.html.erb</file>
         </group>
     </open-files>
 </project-private>

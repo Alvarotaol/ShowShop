@@ -13,3 +13,6 @@
 /tmp
 /vendor/
 /public/system/
+/nbproject/*
+/nbproject/private/private.xml
+mybanco.sh
