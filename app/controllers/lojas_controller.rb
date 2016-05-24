@@ -78,7 +78,7 @@ class LojasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loja_params
-        params.require(:loja).permit(:nome, :cnpj, :imagem)
+        params.require(:loja).permit(:nome, :cnpj, :imagem, :categorias)
     end
   
     def redir_cliente

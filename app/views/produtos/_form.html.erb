@@ -12,17 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nome %><br>
+    <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
+<br>
   <div class="field">
-    <%= f.label :marca %><br>
+    <%= f.label :marca %>
     <%= f.text_field :marca %>
   </div>
+<br>
   <div class="field">
-    <%= f.label :imagem %><br>
+    <%= f.label :imagem %>
     <%= f.file_field :imagem %>
   </div>
+<br>
+<div class = "field">
+    <%= f.label :categorias %>
+    <%= f.text_field :categorias%>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

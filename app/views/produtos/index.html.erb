@@ -22,7 +22,9 @@
 				 <div class="nome-produto"> <%=link_to produto.nome, loja_produto_path(@loja, produto) %> </div>
 			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= produto.marca %>  </div>
 			<div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
-			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > Categoria indefinida </div>
+			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > 
+                <%if produto.categorias == nil%>Categoria indefinida
+            <%else%> <%= produto.categorias.split(" ").first %> <%end%></div>
 			<div> R$ 99,99 </div>
 		</div>
 	<% end %>

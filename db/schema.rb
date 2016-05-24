@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519024104) do
+ActiveRecord::Schema.define(version: 20160520125953) do
+
+  create_table "categoria", force: :cascade do |t|
+    t.string   "nome",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "lojas", force: :cascade do |t|
     t.string   "nome",                limit: 255
     t.string   "cnpj",                limit: 255
+    t.string   "categorias",          limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "imagem_file_name",    limit: 255
@@ -27,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160519024104) do
   create_table "produtos", force: :cascade do |t|
     t.string   "nome",                limit: 255
     t.string   "marca",               limit: 255
+    t.string   "categorias",          limit: 255
     t.integer  "loja_id",             limit: 4
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

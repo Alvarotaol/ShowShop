@@ -30,6 +30,18 @@ class ProdutosController < ApplicationController
   def create
 		@produto = @loja.produtos.create(produto_params)
     respond_to do |format|
+        @categories = @produto.categorias.split(' ')
+        
+        @categories.each do |cat|
+            if @loja.categorias == nil
+                @loja.categorias = cat
+                @loja.save
+            elsif (@loja.categorias.include? cat) == false
+                    @loja.categorias = @loja.categorias + " " + cat
+                @loja.save
+            end
+        end
+        
       if @produto.save
 				 format.html { redirect_to loja_produto_path(@loja, @produto), notice: 'Produto criado com sucesso.' }
       	format.json { render :show, status: :created, location: @produto }
@@ -44,6 +56,19 @@ class ProdutosController < ApplicationController
   # PATCH/PUT /produtos/1.json
   def update
     respond_to do |format|
+        
+        @categories = @produto.categorias.split(' ')
+        
+        @categories.each do |cat|
+            if @loja.categorias == nil
+                @loja.categorias = cat
+                @loja.save
+            elsif (@loja.categorias.include? cat) == false
+                    @loja.categorias = @loja.categorias + " " + cat
+                @loja.save
+            end
+        end
+        
       if @produto.update(produto_params)
         format.html { redirect_to loja_produto_path(@loja, @produto)	, notice: 'O produto foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @produto }
@@ -75,7 +100,7 @@ class ProdutosController < ApplicationController
 		@loja = Loja.find(params[:loja_id])
 	end
   def produto_params
-    params.require(:produto).permit(:nome, :preco, :marca, :t_lote, :imagem)
+      params.require(:produto).permit(:nome, :preco, :marca, :t_lote, :imagem, :categorias)
   end
 
   def redir_cliente
