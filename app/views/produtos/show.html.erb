@@ -37,8 +37,8 @@
 		<p style=""> Preço:
 		<span style = "font-size:21px;">99,99
 		</span></p>
-
-		<button type="button" id="btnLogin" class="btn btn-success"> <i class="glyphicon glyphicon-shopping-cart"></i> Comprar este produto</button>
+		<%= link_to adicionar_path(@loja, @produto), method: :post, :class => "btn btn-success" do %><i class="glyphicon glyphicon-shopping-cart"></i> Comprar este produto <% end %>
+		
 
 	</div>
 </div>
