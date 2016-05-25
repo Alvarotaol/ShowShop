@@ -114,7 +114,6 @@ class ProdutosController < ApplicationController
 	end
 	
 	def carrinho
-		
 	end
 	
 	private

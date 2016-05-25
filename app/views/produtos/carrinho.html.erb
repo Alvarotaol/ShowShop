@@ -1,26 +1,29 @@
 <div class="row" style = "padding-top: 15px">
     <h2>Carrinho de compras para <%= @loja.nome %></h2>
     <h4>Você tem <%= @itens.count %> itens no seu carrinho.</h4>
-    <% for item in @itens %>
-        <div class="produto" style = "">
-            <%@prod = Produto.find(item.produto_id)%>
+	<% @total = 0 %>
+	<% for item in @itens %>
+		<div class="produto" style = "">
+			<%@prod = item.produto%>
 
-            <div class="row" style = "padding-top: 15px">
-                <div class="col-sm-1">
-                  <%=link_to image_tag(@prod.imagem.url(:thumb), class: 'media-object'), loja_produto_path(@loja, @prod) %>
-                </div>
-                <div class="col-sm-2">
-                    <div><%=link_to item.produto.nome, loja_produto_path(@loja, item.produto), style: "font-size: 18px" %></div>
-                    <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= item.produto.marca %>	</div>
-                    <div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
-                    <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > 
-                    <%if item.produto.categorias == nil%>Categoria indefinida
-                    <%else%> <%= item.produto.categorias.split(" ").first %> <%end%></div>
-                    <div> R$ 99,99 </div>
-                </div>
-            </div>
-        </div>
-    <% end %>
+			<div class="row" style = "padding-top: 15px">
+				 <div class="col-sm-1">
+					<%=link_to image_tag(@prod.imagem.url(:thumb), class: 'media-object'), loja_produto_path(@loja, @prod) %>
+				 </div>
+				 <div class="col-sm-2">
+					  <div><%=link_to item.produto.nome, loja_produto_path(@loja, item.produto), style: "font-size: 18px" %></div>
+					  <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= item.produto.marca %>	</div>
+					  <div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
+					  <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > 
+					  <%if item.produto.categorias == nil%>Categoria indefinida
+					  <%else%> <%= item.produto.categorias.split(" ").first %> <%end%></div>
+					 <div> R$ <%= item.produto.preco %> </div>
+				 </div>
+			</div>
+		</div>
+	<% @total += item.produto.preco %>
+	<% end %>
+	Total: R$ <%= @total %>
     <div class="col-sm-4">
         <%= link_to loja_produtos_path(@loja), method: :post, :class => "btn btn-success" do %><i class="glyphicon glyphicon-shopping-cart"></i> Realizar pedido <% end %>
     </div>
