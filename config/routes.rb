@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	get 'lojas/:loja_id/adicionar/:id' => 'produtos#adicionar', :as => "adicionar"
 	get 'lojas/:loja_id/carrinho' => 'produtos#carrinho', :as => "carrinho"
     get 'lojas/:loja_id/:id_cat' => 'lojas#filtrar', :as => "filtro"
+    get 'lojainfo' =>'lojas#lojainfo'
 	# Example of regular route:
 	#   get 'products/:id' => 'catalog#view'
 

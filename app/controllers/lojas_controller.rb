@@ -30,9 +30,18 @@ class LojasController < ApplicationController
   # POST /lojas.json
   def create
     @loja = Loja.new(loja_params)
+    t2 = @loja.save
+    infos = params[:loja][:info_loja].split(",")
+    infos.each do |inf|
+      temp = InfoLoja.new()
+      temp.chave = inf
+        temp.loja_id = Loja.last.id
 
+      temp.save
+  end
+      
     respond_to do |format|
-      if @loja.save
+      if t2
         format.html { redirect_to @loja, notice: 'A loja foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @loja }
       else
@@ -40,6 +49,7 @@ class LojasController < ApplicationController
         format.json { render json: @loja.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /lojas/1
@@ -76,6 +86,10 @@ class LojasController < ApplicationController
         redirect_to loja_produtos_path
     end
     
+    def lojainfo
+        
+    end
+    
     private
 	# Use callbacks to share common setup or constraints between actions.
 	def set_compra
@@ -90,17 +104,12 @@ class LojasController < ApplicationController
 		end
 		@itens = ItemCompra.find_by_compra_id @compra
 	end
-	
+
     
 	def set_loja
 		@loja = Loja.find(params[:id])
 	end
-
-	# Never trust parameters from the scary internet, only allow the white list through.
-	def loja_params
-		params.require(:loja).permit(:nome, :cnpj, :imagem)
-	end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def loja_params
         params.require(:loja).permit(:nome, :cnpj, :imagem, :categorias)

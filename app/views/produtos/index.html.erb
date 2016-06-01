@@ -44,7 +44,12 @@
 			<div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > 
                 <%if produto.categorias == nil%>Categoria indefinida
             <%else%> <%= produto.categorias.split(" ").first %> <%end%></div>
-			<div> R$ 99,99 </div>
+            
+            <%if produto.preco==nil%>
+                <div> IND </div>
+            <%else%>
+                <div> R$ <%= produto.preco%> </div>
+            <%end%>
 			<% if current_usuario.try(:fornecedor?) %>
 				<!--Apenas fornecedores podem editar produtos -->
 				<%= link_to edit_loja_produto_path(@loja, produto), :class => "btn btn-sm pull-center" do%> Editar <i class="glyphicon glyphicon-edit"></i>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524211627) do
+ActiveRecord::Schema.define(version: 20160531233248) do
 
   create_table "categoria", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -28,6 +28,25 @@ ActiveRecord::Schema.define(version: 20160524211627) do
 
   add_index "compras", ["loja_id"], name: "index_compras_on_loja_id", using: :btree
   add_index "compras", ["usuario_id"], name: "index_compras_on_usuario_id", using: :btree
+
+  create_table "info_cliente", force: :cascade do |t|
+    t.string   "chave",      limit: 255
+    t.string   "valor",      limit: 255
+    t.integer  "usuario_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "info_cliente", ["usuario_id"], name: "index_info_cliente_on_usuario_id", using: :btree
+
+  create_table "info_lojas", force: :cascade do |t|
+    t.string   "chave",      limit: 255
+    t.integer  "loja_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "info_lojas", ["loja_id"], name: "index_info_lojas_on_loja_id", using: :btree
 
   create_table "item_compras", force: :cascade do |t|
     t.integer  "compra_id",  limit: 4
@@ -90,6 +109,8 @@ ActiveRecord::Schema.define(version: 20160524211627) do
 
   add_foreign_key "compras", "lojas"
   add_foreign_key "compras", "usuarios"
+  add_foreign_key "info_cliente", "usuarios"
+  add_foreign_key "info_lojas", "lojas"
   add_foreign_key "item_compras", "compras"
   add_foreign_key "item_compras", "produtos"
   add_foreign_key "produtos", "lojas"
