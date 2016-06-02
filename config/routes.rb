@@ -18,8 +18,13 @@ Rails.application.routes.draw do
 	get 'historico' => 'application#not_found'
 	get 'lojas/:loja_id/adicionar/:id' => 'produtos#adicionar', :as => "adicionar"
 	get 'lojas/:loja_id/carrinho' => 'produtos#carrinho', :as => "carrinho"
-    get 'lojas/:loja_id/:id_cat' => 'lojas#filtrar', :as => "filtro"
-    get 'lojainfo' =>'lojas#lojainfo'
+   get 'lojas/:loja_id/:id_cat' => 'lojas#filtrar', :as => "filtro"
+   get 'lojainfo' =>'lojas#lojainfo'
+	get 'comprar/:loja_id' => 'produtos#comprar', :as => "comprar"
+	get 'comprar/:loja_id/atrib' => 'produtos#atrib', :as => "atrib"
+	get 'finalizar/:loja_id' => 'lojas#finalizar', :as => "finalizar"
+	get 'pgto/:loja_id' => 'produtos#pgto', :as => "pgto"
+	get 'destroy_info/:loja_id/:id' => 'lojas#destroy_info', :as => "apagar"
 	# Example of regular route:
 	#   get 'products/:id' => 'catalog#view'
 

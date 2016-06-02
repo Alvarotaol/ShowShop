@@ -1,7 +1,8 @@
 class ProdutosController < ApplicationController
-    before_action :set_compra_loja
+	before_action :set_compra_loja
 	before_action :set_produto, only: [:show, :edit, :update, :destroy]
 	before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
+	before_action :authenticate_usuario!, only: [:comprar]
 
 	# GET /produtos
 	# GET /produtos.json
@@ -114,6 +115,31 @@ class ProdutosController < ApplicationController
 	end
 	
 	def carrinho
+	end
+	
+	def comprar
+		info_l = @loja.info_lojas
+		#info_c = InfoCliente.find_by_cliente_id current_usuario.id
+		info_c = current_usuario.info_clientes
+		@infos = info_l.select do |i|
+			aux = info_c.select { |c| c.chave == i.chave }
+			aux.empty?
+		end
+		redirect_to pgto_url if @infos.empty?
+	end
+	
+	def atrib
+		h = params["InfoCliente"]
+		h.keys.each do |k|
+			c = InfoCliente.new({:chave => k, :valor => h[k]})
+			c.usuario_id = current_usuario.id
+			c.save
+		end
+		redirect_to pgto_url
+	end
+	
+	def pgto
+		
 	end
 	
 	private

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160531233248) do
   add_index "compras", ["loja_id"], name: "index_compras_on_loja_id", using: :btree
   add_index "compras", ["usuario_id"], name: "index_compras_on_usuario_id", using: :btree
 
-  create_table "info_cliente", force: :cascade do |t|
+  create_table "info_clientes", force: :cascade do |t|
     t.string   "chave",      limit: 255
     t.string   "valor",      limit: 255
     t.integer  "usuario_id", limit: 4
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160531233248) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "info_cliente", ["usuario_id"], name: "index_info_cliente_on_usuario_id", using: :btree
+  add_index "info_clientes", ["usuario_id"], name: "index_info_clientes_on_usuario_id", using: :btree
 
   create_table "info_lojas", force: :cascade do |t|
     t.string   "chave",      limit: 255
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160531233248) do
 
   add_foreign_key "compras", "lojas"
   add_foreign_key "compras", "usuarios"
-  add_foreign_key "info_cliente", "usuarios"
+  add_foreign_key "info_clientes", "usuarios"
   add_foreign_key "info_lojas", "lojas"
   add_foreign_key "item_compras", "compras"
   add_foreign_key "item_compras", "produtos"

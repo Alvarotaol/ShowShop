@@ -1,5 +1,5 @@
 class LojasController < ApplicationController
-	before_action :set_compra, only: [:adicionar, :carrinho]
+	before_action :set_compra, only: [:adicionar, :carrinho, :finalizar]
 	before_action :set_loja, only: [:show, :edit, :update, :destroy, :produtos]
 	before_action :redir_cliente, only: [:new, :edit, :create, :update, :destroy]
     
@@ -31,14 +31,7 @@ class LojasController < ApplicationController
   def create
     @loja = Loja.new(loja_params)
     t2 = @loja.save
-    infos = params[:loja][:info_loja].split(",")
-    infos.each do |inf|
-      temp = InfoLoja.new()
-      temp.chave = inf
-        temp.loja_id = Loja.last.id
-
-      temp.save
-  end
+    salvar_infos
       
     respond_to do |format|
       if t2
@@ -55,8 +48,10 @@ class LojasController < ApplicationController
   # PATCH/PUT /lojas/1
   # PATCH/PUT /lojas/1.json
   def update
+	  aux = @loja.update(loja_params)
+	  salvar_infos
     respond_to do |format|
-      if @loja.update(loja_params)
+      if aux
         format.html { redirect_to @loja, notice: 'A loja foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @loja }
       else
@@ -76,6 +71,13 @@ class LojasController < ApplicationController
 		end
 	end
 	
+	def destroy_info
+		loja = Loja.find params[:loja_id]
+		info = InfoLoja.find params[:id]
+		info.destroy
+		redirect_to edit_loja_url loja
+	end
+	
 	
     def filtrar
         @produtos = Loja.find(params[:loja_id]).produtos
@@ -89,6 +91,11 @@ class LojasController < ApplicationController
     def lojainfo
         
     end
+	
+	def finalizar
+		session[:carr] = nil
+		redirect_to loja_produtos_path @loja
+	end
     
     private
 	# Use callbacks to share common setup or constraints between actions.
@@ -105,7 +112,17 @@ class LojasController < ApplicationController
 		@itens = ItemCompra.find_by_compra_id @compra
 	end
 
-    
+	def salvar_infos
+		infos = params[:loja][:info_lojas].split(",")
+		infos.each do |inf|
+			temp = InfoLoja.new()
+			temp.chave = inf
+			temp.loja_id = Loja.last.id
+
+			temp.save
+		end
+	end
+	
 	def set_loja
 		@loja = Loja.find(params[:id])
 	end

@@ -1,0 +1,6 @@
+<form action="<%= @loja.id%>/atrib">
+	<% for info in @infos %>
+		<div><%= info.chave %> <%= text_field "InfoCliente", info.chave %></div>
+	<% end %>
+	<input type="submit" value="Enviar">
+</form>

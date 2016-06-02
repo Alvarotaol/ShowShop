@@ -25,6 +25,6 @@
 	<% end %>
 	Total: R$ <%= @total %>
     <div class="col-sm-4">
-        <%= link_to loja_produtos_path(@loja), method: :post, :class => "btn btn-success" do %><i class="glyphicon glyphicon-shopping-cart"></i> Realizar pedido <% end %>
+		 <%= link_to comprar_path(@loja), :class => "btn btn-success" do %><i class="glyphicon glyphicon-shopping-cart"></i> Realizar pedido <% end %>
     </div>
 </div>
