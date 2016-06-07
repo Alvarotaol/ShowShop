@@ -21,7 +21,10 @@
 				<ul class="nav pull-right">					
 					<%= render 'devise/menu/login_items' %>
 				</ul>
-				
+				<%= form_tag(busca_path, :method => "get", id: "search-form") do %>
+				<%= text_field_tag :busca, params[:busca], placeholder: "Busca teste" %>
+				<%= submit_tag "Buscar" %>
+				<% end %>
 				<!-- Barra de pesquisa -->
  				<form class="navbar-search pull-right" action="" style="display: flex; align-items: center; min-height: 34px;">
 					<input type="text" class="search-query span2" placeholder="Buscar..." style ="width:250px !important; height:30px !important;">

@@ -4,4 +4,9 @@ class Produto < ActiveRecord::Base
   #validates_attachment_presence :imagem
   belongs_to :loja
     has_and_belongs_to_many :categoriums
+	
+	def self.buscar(b)
+		where("nome LIKE \"%#{b}%\"")
+	end
+	
 end

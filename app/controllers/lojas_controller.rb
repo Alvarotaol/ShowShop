@@ -78,6 +78,9 @@ class LojasController < ApplicationController
 		redirect_to edit_loja_url loja
 	end
 	
+	def buscar
+		@prodbusca = Produto.buscar(params[:busca])
+	end
 	
     def filtrar
         @produtos = Loja.find(params[:loja_id]).produtos

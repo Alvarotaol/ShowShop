@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 	get 'finalizar/:loja_id' => 'lojas#finalizar', :as => "finalizar"
 	get 'pgto/:loja_id' => 'produtos#pgto', :as => "pgto"
 	get 'destroy_info/:loja_id/:id' => 'lojas#destroy_info', :as => "apagar"
+	get 'busca' => 'lojas#buscar'
 	# Example of regular route:
 	#   get 'products/:id' => 'catalog#view'
 
