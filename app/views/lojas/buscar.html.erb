@@ -1,17 +1,3 @@
-Lorem<br>
-Ipsun<br>
-Dolor<br>
-Sit<br>
-Amet<br>
-Enche<br>
-Texto<br>
-b<br>
-b<br>
-b<br>
-b<br>
-b<br>
-<%= @prodbusca.size %>
-
 <% for produto in @prodbusca %>
-<%= link_to produto.nome, loja_produto_path(produto.loja_id, produto) %>
+<%= link_to produto.nome, loja_produto_path(produto.loja_id, produto) %><br>
 <% end %>
