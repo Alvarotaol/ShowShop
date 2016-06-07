@@ -7,11 +7,11 @@
 			<%@prod = item.produto%>
 
 			<div class="row" style = "padding-top: 15px">
-				 <div class="col-sm-1">
+				 <div class="col-sm-2">
 					<%=link_to image_tag(@prod.imagem.url(:thumb), class: 'media-object'), loja_produto_path(@loja, @prod) %>
 				 </div>
-				 <div class="col-sm-2">
-					  <div><%=link_to item.produto.nome, loja_produto_path(@loja, item.produto), style: "font-size: 18px" %></div>
+				 <div class="col-sm-4">
+					  <h4><%=link_to item.produto.nome, loja_produto_path(@loja, item.produto), style: "font-size: 18px" %></h4>
 					  <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > <%= item.produto.marca %>	</div>
 					  <div class="disponibilidade" style = "font-style: oblique; font-size: 10px; color: #009933;" > Disponível </div>
 					  <div class="marca-produto" style = "font-style: oblique; font-size: 10px; color: #767676;" > 

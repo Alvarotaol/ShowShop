@@ -1,25 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-<h1>Lojas</h1>
+	<h1>Lojas</h1>
 	<%if current_usuario.try(:fornecedor?) %>
-		<div class="btn-group">
-			<%= link_to "Nova Loja", new_loja_path, :class => "btn btn-primary ui-btn-inline" %>
-		</div>
+	<div class="btn-group">
+		<%= link_to "Nova Loja", new_loja_path, :class => "btn btn-primary ui-btn-inline" %>
+	</div>
 	<%end%>
 </div>
 
 
-				
+
 <div style="padding-top: 20px;">
 	<% @lojas.each do |loja| %>
-		<div class="loja" style = "display: inline-block; margin-left: auto; margin-right: auto; width: 12em; text-align: center;">
+	<div class="col-sm-4 col-lg-4 col-md-4 text-center">
+		<div class="thumbnail">
 			<%=link_to image_tag(loja.imagem.url(:thumb), class: 'media-object', style: 'display: block; margin-left: auto; margin-right: auto;'), loja_produtos_path(loja) %>
-		<div class="nome-loja" style = "font-weight: bold; font-size: 15px; color: #767676;"> <%=link_to loja.nome, loja_produtos_path(loja)  %> </div>
+			<h4 class="nome-loja" style = "font-weight: bold; font-size: 15px; color: #767676; text-align: center;"> <%=link_to loja.nome, loja_produtos_path(loja)  %> </h4>
 			<!-- Só é mostrado se o usuário for um fornecedor -->
 			<% if current_usuario.try(:fornecedor?) %>
-				<div class="dropdown">	
-					<button class="btn btn-secondary dropdown-toggle" type="button" id = "ddmenuLoja" data-toggle="dropdown">Ferramentas <i class="glyphicon glyphicon-wrench"></i>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id = "ddmenuLoja" data-toggle="dropdown">Ferramentas <i class="glyphicon glyphicon-wrench"></i>
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="ddmenuLoja">
 						<!--Ferramentas para o fornecedor -->
@@ -34,7 +35,8 @@
 			<% else %>
 				<td><%= link_to loja, class: "btn btn-secondary" do%> Informações <% end %></td>
 			<% end %> 
-				</div>
-			<% end %>
-		</div>
-<br>
+			</div>
+			</div>
+		<% end %>
+	</div>
+	<br>
